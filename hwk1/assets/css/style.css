@@ -1,0 +1,182 @@
+.header_container {
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid grey;
+    z-index: 100;
+}
+
+#nav_bar {
+    width: 960px;
+    height: 50px;
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+
+#nav_bar ul {
+    list-style-type: none;
+    width: 960px;
+}
+
+#nav_bar li {
+    float: right;
+    border-right: 0.5px dotted grey;
+    padding: 0 5px;
+}
+
+#nav_bar li:first-child {
+    border-right: none;
+}
+
+#nav_bar a {
+    display: block;
+    padding: 8px;
+    color: #777777;
+    text-decoration: none;
+}
+
+.logo {
+    background-color: #4aaaa5;
+    color: #ffffff;
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.logo h1 {
+    color: #ffffff;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/escheresque.png);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 960px;
+    margin: 130px auto 40px;
+    border: 1px solid #dddddd;
+    clear: both;
+    overflow: auto;
+    flex: 1 0 auto;
+    z-index: 1;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #4aaaa5;
+    border-bottom: 2px solid #cccccc;
+    padding-bottom: 25px;
+}
+
+p, li {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #777777;
+}
+
+#content {
+    margin-right: 5px;
+}
+
+#content p {
+    text-align: justify;
+}
+
+img {
+    margin-top: 30px;
+}
+
+#bio_image {
+    float: left;
+    margin: 0 15px 5px 0;
+}
+
+#bio_list ul {
+    float: left;
+}
+
+.footer {
+    background-color: #666666;
+    flex-shrink: 0;
+    border-top: 8px solid #4aaaa5;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 5px 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 5px 0 10px;
+    box-sizing: border-box;
+    border: 1px #cccccc solid;
+}
+
+input[type=submit] {
+    background-color: #4aaaa5;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    margin: 5px 0 10px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.column {
+    float: left;
+    width: 33.3%;
+    padding: 5px;
+}
+
+.hangman_container, .rpg_container, .trivia_container, .rock_container, .rutgers_container {
+    position: relative;
+}
+
+.img_label {
+    position: absolute;
+    bottom: 15px;
+    width: 250px;
+    background-color: #4aaaa5;
+    color: white;
+    text-align: center;
+}

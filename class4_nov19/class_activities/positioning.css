@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1 {
+    font-family: 'Acme', sans-serif;
+    font-size: 32px;
+}
+
+a {
+    transition: 0.5s;
+}
+
+a:hover {
+    color: crimson;
+    font-size: 24px;
+}
+
+a:active {
+    font-style: oblique;
+}
+
+a:focus {
+    color:  greenyellow;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a:visited {
+    color: fuchsia;
+}
+
+li:first-child {
+    color: blueviolet;
+}
+
+p::first-letter {
+    font-size: 22px;
+}
+
+p::selection {
+    color: red;
+    background-color: aqua;
+}
+
+#fixed {
+    padding: 40px;
+    text-align: center;
+    background-color: #eee;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    transition: 1.0s;
+}
+
+#fixed:hover {
+    background-color: orange;
+}
+
+#relative {
+    background-color: #eee;
+    position: relative;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 200px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+#relative:hover {
+    border: 2px solid greenyellow;
+}
+
+#absolute {
+    width: 250px;
+    background-color: #999999;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    right: -25px;
+    transition: 1.0s;
+}
+
+#absolute:hover {
+    width: 400px;
+}
+
+.wrapper {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
