@@ -9,14 +9,37 @@
 <body>
 
   <div id="game">
+    <p>You chose: <span id="user-choice"></span></p>
+    <p>Computer chose: <span id="computer-choice"></span></p>
+    <p>wins:</p>
+    <p>losses:</p>
+    <p>ties:</p>
+
 
   </div>
 
   <script type="text/javascript">
-    // Whenever a key is pressed, alert "pressed a button".
-    document.onkeyup = function() {
-      alert("pressed a button");
-    };
+    var userChoice = document.getElementById("user-choice");
+    document.onkeyup = function(event) {
+      userChoice.textContent = event.key;
+      };
+
+    var compChoice = document.getElementById("computer-choice");
+       
+    var compChoice = ["r", "p", "s"];
+    var randomValue = compChoice[Math.floor(compChoice.length * Math.random())]
+
+
+    
+    
+    
+    
+    
+     
+    
+
+    
+
   </script>
 
 </body>
