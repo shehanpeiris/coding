@@ -8,24 +8,24 @@
 
     <script type="text/javascript">
 
-      // ????
+      // Creates two variables. First is favTVshows, a blank array. Second is a single variable 'tvShow'. Both are empty/undefined
       var favTVshows = [];
       var tvShow;
 
-      // For Loop Elements Repeats ??? Times
+      // For Loop Elements Repeats 3 Times
       for (var i = 1; i < 4; i++) {
 
-        // ????
+        // Asks user "What's your #1 favorite TV show?". The for loop will cycle through #1 - #3, so user will make 3 entries
         tvShow = prompt("What's your #" + i + " favorite TV show?");
 
-        // ????
+        // push adds variables to an array, this code pushes the users entry into the favTVshows array
         favTVshows.push(tvShow);
       }
 
-      // ????
+      // For Loop Element repeats 2 times
       for (var j = 0; j < favTVshows.length; j++) {
 
-        // ???
+        // This code alerts the user of their top 3 TV shows
         alert(favTVshows[j]);
       }
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Shehan's Rock/Paper/Scissors game</title>
+</head>
+<body>
+    <div>
+        <!-- Create the base text that makes up framework of game -->
+        <p id="directions-text">Press r, p or s to start playing!</p>
+        <p id="userchoice-text"></p>
+        <p id="computerchoice-text"></p>
+        <p id="wins-text"></p>
+        <p id="losses-text"></p>
+        <p id="ties-text"></p>
+    </div>
+
+    <script type="text/javascript">
+        // Create array for choices (r/p/s)
+        var choices = ["r", "p", "s"];
+
+        // Create variables for wins/losses/ties
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+        // Create variables that will link to HTML, we want to display things on the pages. A more selective alternative to document.write
+        var directionsText = document.getElementById("directions-text");
+        var userChoiceText = document.getElementById("userchoice-text");
+        var computerChoiceText = document.getElementById("computerchoice-text");
+        var winsText = document.getElementById("wins-text");
+        var lossesText = document.getElementById("losses-text");
+        var tiesText = document.getElementById("ties-text");
+
+        // Now we REALLY start the script (i.e. user action kick-starts the game)
+        document.onkeyup = function(event) {
+
+            // This logs the key user choice and stores it in the variable
+            var userGuess = event.key;
+
+            // Randomly determine computer's choice. Math.random results in a random decimal between 1 & 0
+            var computerGuess = choices[Math.floor(Math.random() * choices.length)];
+
+            // Logic of the game (|| = or)
+            // first line sets parameters for user guess, ensures they hit r/p/s to start the game
+            if ((userGuess === "r")) || (userGuess === "p") || (userGuess = "s")) {
+
+                // this code outlines combinations of two guesses and whether it's a win/loss/tie
+                if ((userGuess === "r" && computerGuess === "s") || (userGuess === "p" && computerGuess === "r") || (userGuess === "s" && computerGuess === "p")) {
+                    wins ++;}
+            
+                else if (userGuess === computerGuess) {
+                    ties ++;}
+                
+                else {
+                    losses ++;}
+                
+                // Hide direction text after user starts game
+                directionsText.textContent = "";
+
+                // Display game text (choices, record)
+                userChoiceText.textContent = "You chose: " + userGuess;
+                computerChoiceText.textContent = "Computer chose: " + computerGuess;
+                winsText.textContent = "Wins: " + wins;
+
+
+
+            }
+
+
+        }
+    
+    
+
+
+
+    </script>
+</body>
+</html>
