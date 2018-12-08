@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Clicked</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <h1>Click to Eat Sandwich</h1>
+  <h3 id="pbj">Peanut Butter Jelly</h3>
+  <h3 id="grilledcheese">Grilled Cheese</h3>
+  <h3 id="roastbeef">Roast Beef</h3>
+  <div id="sandwich-image"></div>
+  <script type="text/javascript">
+
+    // This document.ready isn't necessary in this example... but is needed in cases where the HTML is complex.
+    // This code makes sure that the JavaScript doesn't get run until the HTML is finished loading
+    // It's useful to become familiar with now.
+
+    $(document).ready(function() {
+
+      // VARIABLES
+      // ====================================================================
+      // Here we create variables for tracking the number of sandwiches eaten
+      // ...
+      var pbjCount = 0;
+      var grilledCheeseCount = 0;
+      var roastBeefCount = 0;
+
+      // ...
+
+      // FUNCTIONS
+      // ====================================================================
+      // Here we create various on "click" functions which capture the clicks
+      // Inside each click event is the code to create an alert, update the counter, then show the updated count.
+      // ...
+      $("#pbj").on("click", function() {
+        alert("Rethink your choices. Peanut butter is awful.");
+        pbjCount++;
+        alert("You've eaten " + pbjCount + " peanut butter & jelly sandwiches");
+        $("#sandwich-image").html("<img src='https://www.landolakes.com/RecipeManagementSystem/media/Recipe-Media-Files/Recipes/Retail/DesktopImages/2018_Grilled-Peanut-Butter-and-Jelly_20336_600x600.jpg?ext=.jpg' />");
+      });
+
+      $("#grilledcheese").on("click", function() {
+        alert("NOM NOM NOM GIMME DA CHEEZ");
+        grilledCheeseCount++;
+        alert("You've eaten " + grilledCheeseCount + " grilled cheese sandwiches");
+        $("#sandwich-image").html("<img src='https://www.tasteofthesouthmagazine.com/wp-content/uploads/2017/08/Three-Cheese-Grilled-Cheese.jpg'/>");
+      });
+
+      $("#roastbeef").on("click", function() {
+        alert("WE HAVE THE MEATS!");
+        roastBeefCount++;
+        alert("You've eaten " + roastBeefCount + " roast beef sandwiches");
+        $("#sandwich-image").html("<img src='https://www.cscassets.com/recipes/wide_cknew/wide_25336.jpg'/>");
+      });
+
+      // ...
+
+    });
+
+</script>
+
+</body>
+
+</html>
