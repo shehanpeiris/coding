@@ -1,0 +1,22 @@
+How will you capture button clicks?
+    on.click, using the button IDs
+
+What will you do with the numbers clicked?
+    using the value of the clicked button, store it as a variable (number1). Will have to concatenate all numbers chosen before operator. use parseint to convert to number
+
+What will you do when the operator is clicked?
+    using id/value of clicked operator, translate that into a math function (+ - / *)
+
+How will you differentiate numbers from operators?
+    Using the values of the buttons
+
+How will you know the "value" of a number clicked?
+    reference the values associated with the button
+
+How will you know when a user is done entering the first number?
+    when user chooses an operator, that signals the end of the first number
+
+Etc.
+
+
+Create a few test "on-click" events. These could just trigger Alert messages for now. If you get further along, then have these buttons alert their "value".

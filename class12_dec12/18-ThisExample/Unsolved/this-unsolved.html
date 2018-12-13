@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>This Example</title>
+</head>
+<body>
+
+  <h1>Make sure to view the console to see the action!</h1>
+
+  <script type="text/javascript">
+
+    // EXAMPLE ONE:
+    // --------------------------------------------------
+    // What is "this" going to print? the h1 tag? just the tags, the text inside or both? NOOO*****Window
+
+    console.log(this);
+
+
+    // EXAMPLE TWO:
+    // --------------------------------------------------
+    // What is "this" going to print? myFunction() {console.log(this);}NOOOO******window
+
+    function myFunction() {
+      console.log(this);
+    }
+    myFunction();
+
+    // EXAMPLE THREE (IMPORTANT):
+    // --------------------------------------------------
+    // What is "someObj.say()" going to print? Red Hat
+
+    var someObj = {
+      name: "Red Hat",
+      say: function() {
+        console.log(this.name);
+      }
+    };
+    someObj.say();
+
+
+    // EXAMPLE FOUR (BONUS, TRICKY!):
+    // --------------------------------------------------
+    // What is "myObj.yell()" going to print? Why? myObj?
+
+    var myObj = {
+      name: "",
+      yell: function() {
+        this.name = "Star Powerup"; //this line changes myObj.name to "Star Powerup"
+
+        var changeName = function(newName) {  //this var is defined within the function, so local scope
+          this.name = newName; // this function changes the name of this (in this case the window) to the argument of the changeName function (newName) 
+        };
+        changeName("Blue Shell"); //changes name of window to Blue Shell
+        console.log(this); //console.logs myObj, with a name of Star Powerup
+      }
+    };
+    myObj.yell();
+
+
+    // EXAMPLE FIVE (BONUS, TRICKY!):
+    // --------------------------------------------------
+    // What is "myObj.yell()" going to print? Why? this
+
+    var myObj = {
+      name: "",
+      yell: function() {
+
+        // This line is important!
+        var thisObject = this;
+
+        this.name = "Star Powerup";
+        var changeName = function(newName) {
+          thisObject.name = newName;
+        };
+        changeName("Blue Shell");
+        console.log(thisObject);
+      }
+    };
+    myObj.yell();
+
+  </script>
+</body>
+</html>
