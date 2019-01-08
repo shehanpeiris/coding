@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Movie Search</h1>
+
+    <!-- Movies will get dumped here -->
+    <div id="movies-view"></div>
+
+    <form id="movie-form">
+      <label for="movie-input">Add a Movie, Yo!</label>
+      <input type="text" id="movie-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-movie" type="submit" value="Add a Movie, Yo!">
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Initial array of movies
+      var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+
+      // Function for displaying movie data
+      function renderButtons() {
+        for (var i = 0; i < movies.length; i++) {
+          $("#movies-view").append("<button>" + movies[i] + "</button>");
+        }
+        // YOUR CODE GOES HERE
+
+      };
+
+      // This function handles events where one button is clicked
+      $("#add-movie").on("click", function() {
+        event.preventDefault();
+        var newMovie = $("#movie-input").val().trim();
+        // First IF checks movie is real
+        var queryURL = "https://www.omdbapi.com/?t=" + newMovie + "&y=&plot=short&apikey=trilogy";
+        $.ajax({
+          type: "GET",
+          url: queryURL,
+          timeout: 5000,
+          success: function() {
+            if (jQuery.inArray(newMovie,movies) === -1) {
+              movies.push(newMovie);
+              $("#movies-view").empty();
+              renderButtons();
+              $("#movie-input").val('');
+            } else {
+              alert("Button already exists!");
+              $("#movie-input").val('');
+            }
+          },
+          error: function() {
+          alert("That movie doesn't exist in our database");
+          }
+        });
+        
+        // if (jQuery.inArray(newMovie,movies) === -1) {
+        //   movies.push(newMovie);
+        //   $("#movies-view").empty();
+        //   renderButtons();
+        //   $("#movie-form").find('input:text').val('');
+        // } else {
+        //   alert("Button already exists!");
+        //   $("#movie-form").find('input:text').val('');
+        //  }
+      });
+        
+      // Calling the renderButtons function to display the initial list of movies
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>
