@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>NYT API Test</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // API Call Construction
+        // var url1 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+        // var url2 = "api-key=b9f91d369ff59547cd47b931d8cbc56b:0:74623931&";
+        // var url3 = "q=";
+        // var url4 = ""; //whatever is entered in the search term field
+        // // If user enters begin or end dates, add the following fields (this part will probably be wrapped in an IF statement)
+        // // Start Year
+        // var url5 = "&begin_date=";
+        // var url6 = "";//start year
+        // var url7 = "0101";
+        // // End Year
+        // var url8 = "&end_date=";
+        // var url9 = "";//end year;
+        // var url10 = "0101"; //Ideally, if they choose 2019 as end year, we should use today's date (otherwise we'd cut out everything from Jan 1 - present)
+
+        queryTest = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=b9f91d369ff59547cd47b931d8cbc56b:0:74623931&q=Donald Trump&begin_date=20180101&end_date=20190109&page=0";
+        
+        $.ajax({
+            url: queryTest,
+            method: 'GET'
+        }).then(function(response){
+            console.log(response);
+        });
+
+        // //For incorporation into Rana's file
+        // var urlBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=b9f91d369ff59547cd47b931d8cbc56b:0:74623931&q=";
+        // var searchTerm = ""; //We'll pull this term from what user enters in the Search Term field
+        // var beginDate = "&begin_date="
+        // var startYear = ""; //We'll pull this term from what user enters in Start Year field
+        // var datePeriod = "0101&end_date=";
+        // var endYear = ""; //We'll pull this term from what user enters in End Year field
+        // var urlEnd = "1231&page=0";
+
+        // var queryURL = urlBase + searchTerm + beginDate + startYear + datePeriod + endYear + urlEnd;
+        
+        // // The Ajax call
+        // $.ajax({
+        //     url: queryURL,
+        //     method: 'GET'
+        // }).then(function(response){
+        //     console.log(response);
+        // });
+
+
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+<!-- API Key: b9f91d369ff59547cd47b931d8cbc56b:0:74623931 -->
+<!-- Parameters that are DEFINITELY part of query: Search term & number of records -->
+<!-- Parameers that COULD be part of query: begin and end dates -->
