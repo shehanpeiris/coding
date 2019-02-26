@@ -1,14 +1,14 @@
-DROP DATABASE IF EXISTS ice_creamDB;
+DROP DATABASE IF EXISTS biddieDB;
 
-CREATE DATABASE ice_creamDB;
+CREATE DATABASE biddieDB;
 
-USE ice_creamDB;
+USE biddieDB;
 
 CREATE TABLE products (
   id INT NOT NULL AUTO_INCREMENT,
-  flavor VARCHAR(45) NULL,
-  price DECIMAL(10,2) NULL,
-  quantity INT NULL,
+  category VARCHAR(45),
+  startingBid INT,
+  highestBid INT NULL,
   PRIMARY KEY (id)
 );
 
