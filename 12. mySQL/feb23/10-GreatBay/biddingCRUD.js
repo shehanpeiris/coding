@@ -63,7 +63,7 @@ function makeBid() {
         {
         type: "list",
         message: "What item would you like to bid on?",
-        choices: itemList,
+        choices: for(var j=0;j<itemList.length;j++){itemList[j]},
         name: "item"
         },
         // Here we ask the user for their bid.    
