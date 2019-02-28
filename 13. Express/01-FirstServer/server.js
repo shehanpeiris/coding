@@ -8,7 +8,7 @@ var PORT = 8080;
 function handleRequest(request, response) {
 
   // Send the below string to the client when the user visits the PORT URL
-  response.end("It Works!! Path Hit: " + request.url);
+  response.end("EDIT TESTING NODEMON It Works!! Path Hit: " + request.url);
 }
 
 // Use the Node HTTP package to create our server.
