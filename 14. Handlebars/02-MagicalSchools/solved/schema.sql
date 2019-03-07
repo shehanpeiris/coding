@@ -1,6 +1,6 @@
 -- Created the DB "wizard_schools_db" (only works on local connections)
-CREATE DATABASE barry_trotter_db;
-USE barry_trotter_db;
+CREATE DATABASE wizard_schools_db;
+USE wizard_schools_db;
 
 -- Created the table "schools" 
 CREATE TABLE schools

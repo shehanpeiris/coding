@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "password",
-  database: "test"
+  database: "seinfeld_db"
 });
 
 // Initiate MySQL Connection.
@@ -32,10 +32,10 @@ app.get("/", function(req, res) {
 
   // If the main route is hit, then we initiate a SQL query to grab all records.
   // All of the resulting records are stored in the variable "result."
-  connection.query("SELECT * FROM schools", function(err, result) {
+  connection.query("SELECT * FROM actors", function(err, result) {
 
     // We then begin building out HTML elements for the page.
-    var html = "<h1> Magical Schools </h1>";
+    var html = "<h1> A Table About Nothing </h1>";
 
     // Here we begin an unordered list.
     html += "<ul>";
@@ -43,7 +43,9 @@ app.get("/", function(req, res) {
     // We then use the retrieved records from the database to populate our HTML file.
     for (var i = 0; i < result.length; i++) {
       html += "<li><p> ID: " + result[i].id + "</p>";
-      html += "<p>School: " + result[i].name + " </p></li>";
+      html += "<p>Character: " + result[i].name + " </p></li>";
+      html += "<p>Coolness Points: " + result[i].coolness_points + " </p></li>";
+      html += "<p>Attitude: " + result[i].attitude + " </p></li>";
     }
 
     // We close our unordered list.
@@ -54,11 +56,11 @@ app.get("/", function(req, res) {
   });
 });
 
-app.get("/beaux", function(req, res) {
+app.get("/coolness", function(req, res) {
 
   // If the main route is hit, then we initiate a SQL query to grab all records.
   // All of the resulting records are stored in the variable "result."
-  connection.query("SELECT * FROM schools WHERE id = 4", function(err, result) {
+  connection.query("SELECT * FROM actors ORDER BY coolness_points DESC", function(err, result) {
 
     // We then begin building out HTML elements for the page.
     var html = "<h1> Magical Schools </h1>";
@@ -68,8 +70,10 @@ app.get("/beaux", function(req, res) {
 
     // We then use the retrieved records from the database to populate our HTML file.
     for (var i = 0; i < result.length; i++) {
-      html += "<li><p> ID: " + result[i].id + "</p>";
-      html += "<p>School: " + result[i].name + " </p></li>";
+        html += "<li><p> ID: " + result[i].id + "</p>";
+        html += "<p>Character: " + result[i].name + " </p></li>";
+        html += "<p>Coolness Points: " + result[i].coolness_points + " </p></li>";
+        html += "<p>Attitude: " + result[i].attitude + " </p></li>";
     }
 
     // We close our unordered list.
@@ -79,6 +83,35 @@ app.get("/beaux", function(req, res) {
     res.send(html);
   });
 });
+
+app.get("/attitude/:attitude", function(req, res) {
+
+    var attitude = req.params.attitude;
+    // If the main route is hit, then we initiate a SQL query to grab all records.
+    // All of the resulting records are stored in the variable "result."
+    connection.query("SELECT * FROM actors WHERE attitude = '" + attitude + "'", function(err, result) {
+  
+      // We then begin building out HTML elements for the page.
+      var html = "<h1> Magical Schools </h1>";
+  
+      // Here we begin an unordered list.
+      html += "<ul>";
+  
+      // We then use the retrieved records from the database to populate our HTML file.
+      for (var i = 0; i < result.length; i++) {
+          html += "<li><p> ID: " + result[i].id + "</p>";
+          html += "<p>Character: " + result[i].name + " </p></li>";
+          html += "<p>Coolness Points: " + result[i].coolness_points + " </p></li>";
+          html += "<p>Attitude: " + result[i].attitude + " </p></li>";
+      }
+  
+      // We close our unordered list.
+      html += "</ul>";
+  
+      // Finally we send the user the HTML file we dynamically created.
+      res.send(html);
+    });
+  });
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

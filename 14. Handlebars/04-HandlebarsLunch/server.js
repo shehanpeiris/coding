@@ -16,9 +16,11 @@ app.set("view engine", "handlebars");
 // Data
 var lunches = [
   {
-    lunch: "Beet & Goat Cheese Salad with minestrone soup."
+    lunch: "Beet & Goat Cheese Salad with minestrone soup.",
+    dinner: "Stuffed crust pizza"
   }, {
-    lunch: "Pizza, two double veggie burgers, fries with a Big Gulp"
+    lunch: "Pizza, two double veggie burgers, fries with a Big Gulp",
+    dinner: "Sushi"
   }
 ];
 
