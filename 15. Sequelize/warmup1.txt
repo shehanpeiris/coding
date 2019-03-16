@@ -1,0 +1,8 @@
+var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
+
+How may ways can we empty the array above?
+
+1. array.empty();
+2. for-loop through and replace arr[i] with ""
+3. re-assign the variable
+4. arr.length() = 0

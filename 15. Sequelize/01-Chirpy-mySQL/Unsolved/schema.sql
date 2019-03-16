@@ -2,7 +2,9 @@ CREATE DATABASE chirpy;
 USE chirpy;
 
 CREATE TABLE `chirps` (
-
-  -- TABLE CODE TO GO HERE
-
+  id INT NOT NULL AUTO_INCREMENT,
+  author VARCHAR(30),
+  chirp VARCHAR(280),
+  timestamp TIME,
+  PRIMARY KEY (id)
 );
