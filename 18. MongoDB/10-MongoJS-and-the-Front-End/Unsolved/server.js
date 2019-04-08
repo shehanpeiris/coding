@@ -64,7 +64,7 @@ app.get("/name", function(req, res) {
 });
 
 // 4. At the "/weight" path, display every entry in the animals collection, sorted by weight
-app.get("/weight", function(req, res) {
+app.get("/weight-desc", function(req, res) {
   // Query: In our database, go to the animals collection, then "find" everything,
   // but this time, sort it by weight (-1 means descending order)
   db.animals.find().sort({ weight: -1 }, function(error, found) {
@@ -78,6 +78,50 @@ app.get("/weight", function(req, res) {
     }
   });
 });
+
+app.get("/weight-asc", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything,
+  // but this time, sort it by weight (-1 means descending order)
+  db.animals.find().sort({ weight: 1 }, function(error, found) {
+    // Log any errors if the server encounters one
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      res.json(found);
+    }
+  });
+});
+
+app.get("/class", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  db.animals.find().sort({class: 1}, function(err, data) {
+    // Log any errors if the server encounters one
+    if (err) {
+      console.log(err);
+    }
+    else {
+      // Otherwise, send the result of this query to the browser
+      res.json(data);
+    }
+  });
+});
+
+app.get("/legs", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  db.animals.find().sort({numLegs: 1}, function(err, data) {
+    // Log any errors if the server encounters one
+    if (err) {
+      console.log(err);
+    }
+    else {
+      // Otherwise, send the result of this query to the browser
+      res.json(data);
+    }
+  });
+});
+
 
 // Set the app to listen on port 3000
 app.listen(3000, function() {
