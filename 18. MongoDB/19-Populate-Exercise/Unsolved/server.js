@@ -85,6 +85,14 @@ app.post("/submit", function(req, res) {
 
 // Route to see what user looks like WITH populating
 app.get("/populateduser", function(req, res) {
+  db.User.find({})
+    .populate("notes")
+    .then(function(dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
   // TODO
   // =====
   // Write the query to grab the documents from the User collection,

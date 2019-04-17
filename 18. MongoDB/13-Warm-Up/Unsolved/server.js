@@ -32,12 +32,16 @@ db.on("error", function(error) {
 // TODO: Fill in each route so that the server performs
 // the proper mongojs functions for the site to function
 // -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+// app.get("/", function(re))
 
 // Post a book to the mongoose database
 app.post("/submit", function(req, res) {
   // Save the request body as an object called book
   var book = req.body;
+  db.books.insert(book, function(err, save) {
+    if (err) {console.log(err)};
 
+  })
   // If we want the object to have a boolean value of false,
   // we have to do it here, because the ajax post will convert it
   // to a string instead of a boolean
@@ -48,7 +52,11 @@ app.post("/submit", function(req, res) {
 app.get("/read", function(req, res) {});
 
 // Find all books marked as unread
-app.get("/unread", function(req, res) {});
+app.get("/unread", function(req, res) {
+  db.books.find({read: false}, function(error, found) {
+    res.json(found);
+  })
+});
 
 // Mark a book as having been read
 app.get("/markread/:id", function(req, res) {
